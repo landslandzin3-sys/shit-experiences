@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shit Experiences</title>
+
+  <style>
+    :root{
+      --bg: #050505;
+      --panel: rgba(255,255,255,.04);
+      --panel2: rgba(0,0,0,.25);
+      --border: rgba(255,255,255,.10);
+      --border2: rgba(255,255,255,.16);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.62);
+      --shadow: 0 18px 50px rgba(0,0,0,.65);
+      --radius: 18px;
+      --radius2: 14px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding: 24px;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,.04), transparent 60%),
+        radial-gradient(700px 600px at 50% 90%, rgba(255,255,255,.03), transparent 60%),
+        var(--bg);
+      overflow:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity: .05;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+
+    .wrap{
+      width: min(520px, 92vw);
+      position: relative;
+      z-index: 1;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .top{
+      padding: 18px 18px 12px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), transparent);
+    }
+
+    .titleRow{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+    }
+
+    h1{
+      margin:0;
+      font-size: 26px;
+      letter-spacing: .8px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(0,0,0,.25);
+      white-space: nowrap;
+    }
+
+    .sub{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .content{
+      padding: 14px 14px 16px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.18));
+      display:grid;
+      gap: 12px;
+    }
+
+    .panel{
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      background: rgba(0,0,0,.22);
+      padding: 12px;
+      display:grid;
+      gap: 8px;
+    }
+
+    .line{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .status{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+
+    .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      opacity: .7;
+    }
+
+    .buttons{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .btn{
+      appearance:none;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 14px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      cursor:pointer;
+      transition: transform .06s ease, background .15s ease, border-color .15s ease;
+      text-align:left;
+    }
+
+    .btn:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .btn:active{
+      transform: translateY(1px) scale(.995);
+    }
+
+    .hint{
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    .foot{
+      padding: 0 18px 16px;
+      color: rgba(255,255,255,.40);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,.15);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div class="titleRow">
+        <h1>Shit Experiences</h1>
+        <div class="tag">minimal • b/w • cursed</div>
+      </div>
+      <div class="sub">
+        A tiny hub for questionable links. No flashing. No drama. Just… vibes.
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="panel">
+        <div class="line">
+          <span class="status"><span class="dot"></span> System</span>
+          <span id="clock">--:--:--</span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn" id="btnSite">
+          Open AN RNG Site
+          <div class="hint">landslandzin3-sys.github.io</div>
+        </button>
+
+        <button class="btn" id="btnCalc">
+          Open Shit Calculator
+          <div class="hint">shit-calculator</div>
+        </button>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>© Shit Experiences</span>
+      <span id="msg">ready</span>
+    </footer>
+  </main>
+
+  <script>
+    const btnSite = document.getElementById("btnSite");
+    const btnCalc = document.getElementById("btnCalc");
+    const clock = document.getElementById("clock");
+
+    btnSite.onclick = () => {
+      window.open("https://landslandzin3-sys.github.io", "_blank");
+    };
+
+    btnCalc.onclick = () => {
+      window.open(
+        "https://landslandzin3-sys.github.io/shit-calculator/",
+        "_blank"
+      );
+    };
+
+    function tick(){
+      const d = new Date();
+      clock.textContent =
+        String(d.getHours()).padStart(2,"0") + ":" +
+        String(d.getMinutes()).padStart(2,"0") + ":" +
+        String(d.getSeconds()).padStart(2,"0");
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>
